@@ -21,7 +21,7 @@ features to your application.
 INSTALLATION
 ------------
 
-### Clone this repositorio
+### Clone this repository
 
 You can then install this project template using the following command:
 
