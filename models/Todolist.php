@@ -5,18 +5,15 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "todolist".
+ * Esta é a classe de modelo para a tabela "Todolist".
  *
  * @property int $id
  * @property string $name
- * @property string $duo_date
- * @property int|null $created_at
- * @property int|null $updated_at
+ * @property string $due_date
  */
 class Todolist extends \yii\db\ActiveRecord
 {
     /**
-     * Static method that returns the table name
      * {@inheritdoc}
      */
     public static function tableName()
@@ -25,17 +22,13 @@ class Todolist extends \yii\db\ActiveRecord
     }
 
     /**
-     * Method responsible for validating the received data
      * {@inheritdoc}
      */
     public function rules()
     {
-        //informs that the data can be written when using the $model->attributes in the controller
         return [
-            [['name', 'duo_date'], 'required'],
-            [['duo_date'], 'safe'],
-            [['created_at', 'updated_at'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['name','due_date'], 'required'],   
+            [['name'], 'string', 'max' => 255],         
         ];
     }
 
@@ -47,9 +40,16 @@ class Todolist extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'duo_date' => 'Duo Date',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'due_date' => 'Data',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return TodolistQuery a consulta ativa usada por esta classe AR.
+     */
+    public static function find()
+    {
+        return new TodolistQuery(get_called_class());
     }
 }

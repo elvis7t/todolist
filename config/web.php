@@ -47,7 +47,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'todolist/<id:\d+>/update' => 'todolist/update',
+                'todolist/<id:\d+>/update' => 'todolist/update',                
+                 'todolist/<id:\d+>/delete' => 'todolist/delete'
             ],
         ],
        
